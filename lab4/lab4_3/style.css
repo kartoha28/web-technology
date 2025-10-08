@@ -1,0 +1,34 @@
+/* 1. */
+a {
+    color: purple;
+}
+
+/* 2.*/
+.main_points {
+    color: green;
+}
+
+/* 3. */
+.berries {
+    list-style-type: square;
+}
+
+/* 4. */
+.veg {
+    list-style-type: "\2713  "; /* Unicode символ галочки */
+}
+
+/* 5.  */
+ul ul {
+    list-style: none;
+}
+
+/* 6.  */
+.berries a {
+    text-decoration: none;
+}
+
+/* 7.*/
+ol {
+    list-style-position: inside;
+}
