@@ -1,0 +1,151 @@
+/* --- Глобальні стилі та фон --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Зберігає розміри блоків при додаванні padding і border */
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background: linear-gradient(to right, rgb(156, 1, 208), rgb(212, 99, 163));
+    color: #333;
+    padding: 20px; /* Додаємо відступ, щоб форма не прилипала до країв екрана */
+}
+
+/* --- Заголовок сторінки --- */
+h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* --- Контейнер форми --- */
+form {
+    max-width: 700px; /* Збільшив ширину для кращого вигляду */
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 25px; /* Трохи зменшив радіус для більш стриманого вигляду */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Додав тінь для глибини */
+}
+
+/* --- Секції форми --- */
+fieldset {
+    border: none;
+    margin-bottom: 25px;
+    padding: 0;
+}
+
+legend {
+    font-size: 24px; /* Зменшив розмір для кращої ієрархії */
+    font-weight: bold;
+    margin-bottom: 15px;
+    width: 100%;
+    border-bottom: 1px solid #eee; /* Додав лінію-розділювач */
+    padding-bottom: 10px;
+}
+
+/* --- Підписи та поля вводу --- */
+/* Стиль для більшості полів, де підпис зліва, а поле вводу справа */
+label {
+    display: flex; /* Використовуємо Flexbox для вирівнювання */
+    justify-content: space-between; /* Розміщує елементи по краях */
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Загальні стилі для полів вводу */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="password"],
+input[list],
+textarea,
+select {
+    width: 65%; /* Поле вводу займає 65% ширини label */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Окремі стилі для радіокнопок та чекбоксів */
+p {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Для радіо та чекбоксів повертаємо стандартне компонування */
+label input[type="radio"],
+label input[type="checkbox"] {
+    width: auto; /* Повертаємо автоматичну ширину */
+    margin-right: 10px;
+}
+
+/* Щоб підпис і радіокнопка були зліва разом */
+fieldset label:has(input[type="radio"]),
+fieldset label:has(input[type="checkbox"]) {
+    justify-content: flex-start; /* Вирівнювання по лівому краю */
+}
+
+
+/* --- Кнопки --- */
+/* Контейнер для кнопок, щоб розмістити їх в ряд */
+fieldset:has(button) {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+button {
+    background-color: #3e8e41;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 16px; /* Зменшив шрифт для елегантності */
+    font-weight: bold;
+    transition: background-color 0.3s ease; /* Додав плавну анімацію */
+}
+
+button:hover {
+    background-color: #4CAF50; /* Зміна кольору при наведенні */
+}
+
+button[type="reset"] {
+    background-color: #c43a3a;
+}
+
+button[type="reset"]:hover {
+    background-color: #d85252;
+}
+
+/* --- Інші елементи --- */
+/* Поле для завантаження файлу */
+input[type="file"] {
+    border: none;
+    width: 100%;
+}
+
+textarea {
+    width: 100%; /* Текстове поле на всю ширину */
+    resize: vertical; /* Дозволяє змінювати розмір тільки по висоті */
+}
+
+/* Посилання "Повернутися назад" */
+div[align="left"] {
+    text-align: center; /* Центруємо для кращого вигляду */
+    margin-top: 20px;
+}
+
+div a {
+    color: rgb(156, 1, 208);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+div a:hover {
+    text-decoration: underline;
+}
