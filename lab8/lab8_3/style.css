@@ -1,0 +1,164 @@
+/* === 3. ВИКОРИСТАННЯ CSS VARIABLES === */
+:root {
+    --font-family: 'Lato', sans-serif;
+    --primary-text-color: #444;
+    --secondary-text-color: #777;
+    --border-color: #cacaca;
+    --widget-background: #ffffff;
+    --widget-max-width: 600px;
+}
+
+/* Загальні стилі */
+body {
+    font-family: var(--font-family);
+    color: var(--primary-text-color);
+    background-color: #f4f4f4; /* Фон для сторінки, щоб бачити віджет */
+    padding: 20px;
+}
+
+/* Контейнер всього віджета */
+.weather-widget {
+    max-width: var(--widget-max-width);
+    margin: 0 auto;
+    background: var(--widget-background);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    padding: 25px;
+}
+
+/* === ВЕРХНІЙ БЛОК: ПОТОЧНА ПОГОДА === */
+.current-weather {
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 20px;
+}
+
+.location-header h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    font-weight: 400; /* БУЛО: 700 */
+}
+
+.location-header p {
+    font-size: 1.1rem; /* 18px */
+    color: var(--secondary-text-color);
+    margin: 5px 0;
+}
+
+.location-header .condition-desc {
+    font-size: 1rem; /* 16px */
+}
+
+/* === КЛЮЧОВИЙ БЛОК FLEXBOX (1) === */
+/* Розміщуємо іконку/температуру (зліва) та статистику (справа) */
+.current-details {
+    display: flex;
+    justify-content: space-between; /* Розводить дочірні елементи по боках */
+    align-items: center;
+    margin-top: 20px;
+}
+
+.current-main {
+    display: flex;
+    align-items: center;
+    /* flex: 1; */ /* Дозволяє цьому блоку рости, якщо потрібно */
+}
+
+.current-icon {
+    width: 100px;
+    height: 100px;
+    margin-right: 15px;
+}
+
+.current-temp {
+    font-size: 5rem;
+    font-weight: 400; /* БУЛО: 700 */
+    line-height: 1;
+}
+
+/* Змінюємо °F на сірий */
+.current-temp .degree {
+    font-size: 2rem;
+    font-weight: 400; /* Переконуємось, що не жирний */
+    vertical-align: top;
+    margin-left: 5px;
+    color: var(--secondary-text-color); /* Додаємо сірий колір */
+}
+
+.current-stats {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.95rem; /* 15px */
+    line-height: 1.6;
+    color: var(--secondary-text-color);
+    /* flex: 1; */ /* Дозволяє цьому блоку рости */
+    text-align: right; /* Як на макеті */
+}
+
+/* Додайте це правило для нового <span> */
+.current-stats .stat-value {
+    color: var(--primary-text-color); /* Темно-сірий колір */
+    font-weight: 400; /* Переконуємось, що не жирний */
+}
+
+
+/* === НИЖНІЙ БЛОК: ПРОГНОЗ === */
+.forecast-list {
+    margin-top: 20px;
+}
+
+/* === КЛЮЧОВИЙ БЛОК FLEXBOX (2) === */
+/* Кожен день - це гнучкий контейнер. Це головна вимога завдання. */
+.forecast-day {
+    display: flex;
+    justify-content: space-between; /* Головна властивість: розводить 2 групи по боках */
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Останній елемент без лінії */
+.forecast-day:last-child {
+    border-bottom: none;
+}
+
+/* Цей блок групує все, що зліва (день, іконка, температури) */
+.forecast-left {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Сучасний спосіб додати відступи між елементами */
+}
+
+/* Змінюємо назву дня (Today, Wednesday...) на нежирний */
+.forecast-day .day {
+    font-weight: 400; /* Було 700 */
+    font-size: 1.1rem;
+    min-width: 110px;
+}
+
+.forecast-icon {
+    width: 45px;
+    height: 45px;
+}
+
+/* Змінюємо високу температуру (68°) на нежирну */
+.temps .high {
+    font-weight: 400; /* Було 700 */
+}
+
+/* Новий код */
+.temps {
+    display: flex;
+    flex-direction: column; /* Головна зміна: ставить елементи вертикально */
+    line-height: 1.3;       /* Трохи зменшує відстань між рядками */
+}
+
+.temps .low {
+    color: var(--secondary-text-color);
+    /* margin-left: 10px;  - Цей рядок більше не потрібен */
+}
+
+.pollen {
+    color: var(--secondary-text-color);
+    font-size: 0.95rem;
+}
